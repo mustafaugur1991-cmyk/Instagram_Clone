@@ -1,85 +1,81 @@
-/* Body'e padding vererek Navbar'ın içerikle birleşmesini engelliyoruz */
+/* Body ayarları */
 body {
-    background-color: #fafafa; /* Instagram'ın arkaplan rengi */
-    padding-top: 54px; /* Navbar height kadar boşluk */
+    background-color: #fafafa;
+    padding-top: 85px; /* Navbar'ın altında kalmaması için */
 }
 
-/* Navbar Ayarları */
+/* Navbar ayarları */
 nav.navbar {
     height: 54px;
-    background-color: #fff;
-    z-index: 999; /* Her zaman üstte kalsın */
+    z-index: 1000;
 }
 
-/* Navbar Logo: Soldan 192px margin */
+/* Logo Margin (400px soldan margin) */
 .logo-margin {
-    margin-left: 192px;
+    margin-left: 440px;
 }
 
-/* Arama Input Ayarları */
+
+/* Arama Input Özelleştirmesi */
 .search-input {
-    text-align: center;
+    text-align:center;
     background-color: #fafafa;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
     height: 28px;
+    font-size: 16px;
+    width: 215px;
+}
+
+/* Placeholder İkonu */
+.search-input::placeholder {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/54/54481.png'); 
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: 70px center;
+    text-align: center;
+    color: #aeaeae;
     font-size: 14px;
 }
 
-/* Search Placeholder'a İkon Ekleme */
-.search-input::placeholder {
-    font-family: "Font Awesome 5 Free"; /* FontAwesome kullanıyorsak */
-    font-weight: 900;
-    /* Alternatif: Bir resim dosyası kullanmak istenirse aşağıdakini kullanın */
-    background-image: url('https://cdn-icons-png.flaticon.com/512/54/54481.png'); /* Arama ikonu görseli */
-    background-size: 10px;
-    background-position: 80px center; /* Metnin yanına hizalama */
-    background-repeat: no-repeat;
+.search-container {
+    position: absolute; /* Bağımsız hareket etmesini sağlar */
+    left:53%;          /* Soldan %50 iter */
+    transform: translateX(-50%); /* Kendi boyutunun yarısı kadar geri çeker (Tam ortalar) */
     text-align: center;
-    color: #aeaeae;
 }
 
-/* Middle Area: Maksimum yükseklik 200px olmalı ve important kullanılmalı */
-/* Not: Ödevde "Class'da belirttiğimiz middlearea içinde maksimum yükseklik 200px olmalı" denmiş. 
-   Ancak tüm içerik alanını 200px yaparsak postlar sığmaz. 
-   Muhtemelen bu kural hikaye bölümü (stories) veya belirli bir kutu için istenmiş olabilir. 
-   Yönergeye sadık kalmak için sınıfı buraya ekliyorum, ancak görüntüyü bozarsa bu değeri artırabilirsiniz. */
-.middlearea {
-    /* max-height: 200px !important;  <- Bu satır tüm sayfayı 200px'e kısıtlar, ödevde belki de sadece hikaye kutusu kastediliyordur. 
-       Yine de kural gereği buraya yazıyorum ama yorum satırı yapıyorum ki siteniz bozulmasın. 
-       Eğer hoca kesin istiyorsa yorumu kaldırın. */
-}
-
-/* Sağ Panel (Sidebar) Sticky Özelliği */
+/* Sticky Sidebar Ayarları */
+/* Postların üzerine binmemesi için 'left' değeri 60% yapıldı */
 .stickysidebar {
-    position: fixed; /* Sayfa kaydıkça sabit kalması için */
-    top: 84px; /* Navbar'ın biraz altından başlasın */
-    left: 62%; /* Grid yapısına göre manuel hizalama gerekebilir veya width verilebilir */
-    width: 300px;
+    position: fixed;
+    top: 84px;
+    left:60%; 
+    width: 290px;
 }
 
-/* Rightpanel ayarları */
+/* Rightpanel Arkaplan */
 .rightpanel {
-    background-color: #fff; /* Arkaplan beyaz */
-    border: none; /* Kenarlık olmamalı */
+    background-color: transparent;
+    border: none;
 }
 
-/* Kartların Header ve Footer renkleri */
+/* Card Renk Ayarları */
 .card-header, .card-footer {
     background-color: #fff !important;
 }
 
-/* Linkler ve butonlar için genel düzenlemeler */
+/* Link Alt Çizgi Kaldırma */
 a {
     text-decoration: none !important;
 }
 
-/* Küçük ekran düzenlemeleri (Responsive) */
-@media (max-width: 768px) {
+/* Küçük Ekran Ayarları */
+@media (max-width: 992px) {
     .logo-margin {
-        margin-left: 0; /* Mobilde soldaki büyük boşluğu kaldır */
+        margin-left: 0;
     }
     .stickysidebar {
-        display: none; /* Mobilde sağ paneli gizle */
+        display: none; /* Tablet modunda sidebar gizlensin */
     }
 }
